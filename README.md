@@ -1,4 +1,3 @@
-# Meu_boletim
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -243,6 +242,7 @@ button {
             onclick="gerarImagem()"
         >
             📸 Salvar boletim como imagem
+            <button onclick="compartilharSite()">📤 Compartilhar Meu Boletim</button>
         </button>
 
         <button
@@ -1053,7 +1053,18 @@ document
 ========================= */
 
 carregarDados();
-
+function compartilharSite() {
+  if (navigator.share) {
+    navigator.share({
+      title: "Meu Boletim",
+      text: "Confira o Meu Boletim!",
+      url: "https://marcosvinic177ofc-beep.github.io/Meu_boletim/"
+    });
+  } else {
+    navigator.clipboard.writeText("https://marcosvinic177ofc-beep.github.io/Meu_boletim/");
+    alert("Link copiado! Agora é só enviar para seus amigos.");
+  }
+}
 </script>
 
 </body>
